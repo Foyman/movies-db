@@ -1,0 +1,26 @@
+{% load static %}
+
+  <head>
+    <link rel="stylesheet" type="text/css" href="{% static 'style/noresult.css' %}" />
+  </head>
+  <body>
+    <div class = "header">
+      <h1>Random Academy Movie</h1>
+    </div>
+
+    <div class = "content">
+      <h1>Sorry, but no movie meets your criteria</h1>
+      <img src = "{% static 'images/notfound.png' %}" />
+      <p>Please go back and change your search</br>
+        <form>
+          <input type="button" onClick="history.back()" value="Change Search">
+        </form>
+    </p>
+    </div>
+
+  <div class = "Footer">
+    <p>Created by Jack Foy</br>
+    California Polytechnic State University, San Luis Obispo
+    </p>
+  </div>
+</body>

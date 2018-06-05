@@ -1,0 +1,75 @@
+{% load static %}
+
+  <head>
+    <link rel="stylesheet" type="text/css" href="{% static 'style/test.css' %}" />
+  </head>
+  <div class = "header">
+  <body>
+    <div class = "header">
+      <h1>Random Academy Movie</h1>
+    </div>
+
+    <div class= "content">
+      <table class = "main">
+        <tr>
+          <td>
+            <img src = "{% static imagelink %}" class = "poseter" alt="{{bestpic.title}}" id="borderimg"/>
+          </td>
+          <td>
+            <h1>{{bestpic.title}}
+            {% if bestpic.winner %}
+              <span>
+                <img src = "{% static 'images/winner.png' %}" width = "15" height = "50" />
+              </span>
+            {% endif %}
+          </h1>
+            <p><b>Year:</b> {{bestpic.year}}</br>
+            <b>Length:</b> {{bestpic.length}} minutes</br>
+            <b>Genre:</b> {{bestpic.genre}}
+            </p>
+            <p class = "description"> In a world where things happen, a person finds themselves in a situation and has to deal with it. And this person will do a lot to make sure the situation works out. But will those actions be enough to deal with the situation?
+</p>
+            <p>Streams:</br>
+              {% if streamlinks.netflix %}
+                <a href = "https://www.netflix.com/watch/{{streamlinks.netflix}}">
+                  <img src = "{% static 'images/netflix.png' %}" class = "link"/>
+                </a>
+              {% else %}
+                <img src = "{% static 'images/netflix.png' %}" class = "link none"/>
+              {% endif %}
+              {% if streamlinks.hulu %}
+                <a href = "https://www.hulu.com/watch/{{streamlinks.hulu}}">
+                  <img src = "{% static 'images/hulu.png' %}" class = "link"/>
+                </a>
+              {% else %}
+                <img src = "{% static 'images/hulu.png' %}" class = "link none"/>
+              {% endif %}
+              {% if streamlinks.hbo %}
+                <a href = "https://play.hbogo.com/feature/urn:hbo:feature:{{streamlinks.hbo}}">
+                  <img src = "{% static 'images/hbo.png' %}" class = "link"/>
+                </a>
+              {% else %}
+                <img src = "{% static 'images/hbo.png' %}" class = "link none"/>
+              {% endif %}
+          </td>
+          <td>
+            {% if search %}
+              <form>
+                <input type="button" onClick="history.go(0)" value="Reroll">
+              </form>
+              </br>
+              <form>
+                <input type="button" onClick="history.back()" value="Change Search">
+              </form>
+            {% endif %}
+          </td>
+        </tr>
+      </table>
+    </div>
+
+  <div class = "Footer">
+    <p>Created by Jack Foy</br>
+    California Polytechnic State University, San Luis Obispo
+    </p>
+  </div>
+</body>

@@ -1,0 +1,16 @@
+<h1>Random Oscar Movie</h1>
+
+<%= form_for @movie_query , url: {action: "movie"} do |f| %>
+  Minimum Year: <%= f.text_field :min_year, value:1927 %></br>
+  Max Year: <%= f.text_field :max_year, value:2017  %></br>
+  Minimum Length (minutes): <%= f.text_field :min_length, value:66 %></br>
+  Max Length (minutes): <%= f.text_field :max_length, value:248 %></br>
+  Genre: <%= @genre_list.each do |genres| %>
+           <%= f.check_box(:movie_genre, {:multipler => true}, genres, nil) %>
+           <%= "#{genres}" %></br>
+         <% end %></br>
+  Award Winning: <%= f.check_box :winner %></br>
+  <%= f.submit "Find Movie" %>
+<% end %>
+</br>
+<%= link_to("Get random movie", {:action => 'movie'}) %>
